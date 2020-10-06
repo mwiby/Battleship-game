@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!--Game console for cumputer and player-->
+    <!--Game board for computer and player-->
     <div class="container">
         <div class="grid grid-user"></div>
         <div class="grid grid-computer"></div>
@@ -28,7 +28,12 @@
     </div>
 
     <!-- Ship options menu-->
-    <div class="grid-display"></div>
+    <div class="grid-display">
+        <div class="destroyer-container ship" draggable="true">
+            <div id="destroyer-0"></div>
+            <div id="destroyer-1"></div>
+        </div>
+    </div>
     
     <script src="app.js" charset="utf-8"></script>
 </body>

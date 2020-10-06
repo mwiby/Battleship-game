@@ -9,6 +9,7 @@
     display:flex;
     flex-wrap: wrap;
     background-color:blue;
+    margin: 12px;
 }
 .grid div {
     width: 40px;
@@ -21,5 +22,12 @@
     display:flex;
     flex-wrap: wrap;
     background-color: aquamarine;
+    margin: 12px;
+}
 
+.grid-display{
+    width: 400px;
+    height: 400px;
+    margin: 12px;
+    background-color: aliceblue;
 }
