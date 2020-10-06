@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battleship</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Battleship Game</title>
 </head>
 <body>
 
+    <!--Game console for cumputer and player-->
     <div class="container">
         <div class="grid grid-user"></div>
         <div class="grid grid-computer"></div>
     </div>
 
 
-
+    <!-- Action buttons and generic game info-->
     <div class="hidden-info">
         <button id="start">
             Start Game
@@ -24,6 +26,9 @@
         <h3 id="whose-turn">Your Turn</h3>
         <h3 id="info"></h3>
     </div>
+
+    <!-- Ship options menu-->
+    <div class="grid-display"></div>
     
     <script src="app.js" charset="utf-8"></script>
 </body>
