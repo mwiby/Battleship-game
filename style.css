@@ -8,12 +8,8 @@
     height: 400px;
     display:flex;
     flex-wrap: wrap;
-    background-color:blue;
+    background-color:rgb(66, 129, 245);
     margin: 12px;
-}
-.grid div {
-    width: 40px;
-    height: 40px;
 }
 .grid-computer {
 
@@ -21,21 +17,57 @@
     height: 400px;
     display:flex;
     flex-wrap: wrap;
-    background-color: aquamarine;
+    background-color: rgb(127, 172, 255);
     margin: 12px;
 }
-
+.grid div {
+    width: 40px;
+    height: 40px;
+}
 .grid-display{
     width: 400px;
     height: 400px;
     margin: 12px;
-    background-color: aliceblue;
+    padding: 8px;
+    background-color: rgb(209, 220, 230);
 }
 
 .destroyer-container {
     width: 80px;
     height: 40px;
-    background-color: deeppink;
+    background-color: rgb(151, 1, 1);
+    margin: 10px;
+    border-radius: 17px;
+    display: flex;
+}
+.submarine-container {
+    width: 120px;
+    height: 40px;
+    background-color: rgb(33, 54, 25);
+    margin: 10px;
+    border-radius: 17px;
+    display: flex;
+}
+.cruiser-container {
+    width: 120px;
+    height: 40px;
+    background-color: rgb(154, 167, 83);
+    margin: 10px;
+    border-radius: 17px;
+    display: flex;
+}
+.battleship-container {
+    width: 160px;
+    height: 40px;
+    background-color: rgb(84, 83, 167);
+    margin: 10px;
+    border-radius: 17px;
+    display: flex;
+}
+.carrier-container {
+    width: 200px;
+    height: 40px;
+    background-color: rgb(31, 31, 65);
     margin: 10px;
     border-radius: 17px;
     display: flex;
