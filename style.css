@@ -40,6 +40,17 @@
     border-radius: 15px;
     display: flex;
 }
+.destroyer-container-vertical {
+
+    width: 40px;
+    height: 80px;
+    background-color: rgb(151, 1, 1);
+    margin: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
 .submarine-container {
     width: 120px;
     height: 40px;

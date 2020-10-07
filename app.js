@@ -18,11 +18,13 @@ const rotateButton = document.querySelector('#rotate');
 const turnDisplay = document.querySelector('#whose-turn');
 const infoDisplay = document.querySelector('#info');
 
+// Default for rotate
+let isHorizontal = true;
 
 // Board size 10 x 10
 const width = 10;
 
-// All the squares in the Boards
+// All the squares in the two Boards
 const userSquares = [];
 const computerSquares = [];
 
@@ -96,6 +98,7 @@ function generate(ship){
     const isTaken = current.some(index => computerSquares[randomStart + index].classList.contains('taken'));
     // Controll for the right egde of board
     const hitRightEdge = current.some(index => (randomStart + index) % width === width - 1);
+    // Controll for the left egde of board
     const hitLeftEgde = current.some(index => (randomStart + index) % width === 0);
 
     // Check if possible to build ship at given posisjon
@@ -104,10 +107,21 @@ function generate(ship){
     }
     else 
     generate(ship);
+} 
+
+// Creating Ships
+    shipArray.forEach(index => generate(index));
+
+
+// rotate the ships
+
+function rotate(){
+
+    if(isHorizontal){
+        destroyer.classList.toggle('destroyer-container-vertical');
+        isHorizontal = false;
+    }
+
 }
 
-generate(shipArray[0]);
-generate(shipArray[1]);
-generate(shipArray[2]);
-generate(shipArray[3]);
-generate(shipArray[4]);
+rotateButton.addEventListener('click',rotate);
