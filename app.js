@@ -1,11 +1,12 @@
 
+document.addEventListener('DOMContentLoaded', () => {
 
 
 // Selectors for the boards and all the ships container
 const userGrid = document.querySelector('.grid-user');
 const computerGrid = document.querySelector('.grid-computer');
 const displayGrid = document.querySelector('.grid-display');
-const ships = document.querySelectorAll('ship');
+const ships = document.querySelectorAll('.ship');
 const destroyer = document.querySelector('.destroyer-container');
 const submarine = document.querySelector('.submarine-container');
 const cruiser = document.querySelector('.cruiser-container');
@@ -141,3 +142,50 @@ function rotate(){
 rotateButton.addEventListener('click',rotate);
 
 //move ships
+ships.forEach(ship => ship.addEventListener('dragstart',dragStart));
+userSquares.forEach(square => square.addEventListener('dragstart',dragStart));
+userSquares.forEach(square => square.addEventListener('dragover',dragOver));
+userSquares.forEach(square => square.addEventListener('dragenter',dragEnter));
+userSquares.forEach(square => square.addEventListener('dragleave',dragLeave));
+userSquares.forEach(square => square.addEventListener('drop',dragDrop));
+userSquares.forEach(square => square.addEventListener('dragend',dragEnd));
+
+
+
+let indexShip;
+let draggedShip;
+let draggedShipLength;
+
+
+// Which part of the ship
+ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
+
+    indexShip = e.target.id;
+}))
+
+function dragStart() {
+
+    draggedShip = this;
+    draggedShipLength = draggedShip.childNodes.length; 
+}
+function dragOver(e) {
+    e.preventDefault();    
+}
+function dragEnter(e) {
+    e.preventDefault();
+}
+function dragLeave() {
+  
+}
+function dragDrop() {
+    let shipNameWithLastId = draggedShip.lastChild.id;
+    console.log(shipNameWithLastId);
+    let shipClass = shipNameWithLastId.slice(0,-2);
+    
+}
+function dragEnd() {
+    
+}
+
+})
+
