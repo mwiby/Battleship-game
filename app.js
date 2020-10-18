@@ -14,10 +14,7 @@ const battleship = document.querySelector('.battleship-container');
 const carrier = document.querySelector('.carrier-container');
 
 // Selectors for button and text info
-const startButton = document.querySelector('#start');
 const rotateButton = document.querySelector('#rotate');
-const turnDisplay = document.querySelector('#whose-turn');
-const infoDisplay = document.querySelector('#info');
 
 // Default for rotate
 let isHorizontal = true;
@@ -152,7 +149,7 @@ userSquares.forEach(square => square.addEventListener('dragend',dragEnd));
 
 
 
-let indexShip;
+let shipId;
 let draggedShip;
 let draggedShipLength;
 
@@ -160,13 +157,14 @@ let draggedShipLength;
 // Which part of the ship
 ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
 
-    indexShip = e.target.id;
+    shipId = e.target.id;
 }))
 
 function dragStart() {
-
+    
     draggedShip = this;
-    draggedShipLength = draggedShip.childNodes.length; 
+    
+    draggedShipLength = draggedShip.children.length;
 }
 function dragOver(e) {
     e.preventDefault();    
@@ -178,10 +176,33 @@ function dragLeave() {
   
 }
 function dragDrop() {
-    let shipNameWithLastId = draggedShip.lastChild.id;
-    console.log(shipNameWithLastId);
-    let shipClass = shipNameWithLastId.slice(0,-2);
+    let shipNameId = draggedShip.lastElementChild.id;
+    let shipClass = shipNameId.slice(0,-2);
+    let lastShipIndex = parseInt(shipNameId.substr(-1));
+    let shipLastId = lastShipIndex + parseInt(this.dataset.id); 
+    console.log(shipLastId);
+
+    selectedShipIndex = parseInt(shipId.substr(-1));
     
+
+    shipLastId = shipLastId - selectedShipIndex;
+    console.log(shipLastId);
+
+    if(isHorizontal){
+        for(let i=0; i < draggedShipLength; i++){
+            userSquares[parseInt(this.dataset.id) - shipLastId + i].classList.add('taken',shipClass);
+        }
+    }else if(!isHorizontal) {
+        for(let i=0; i < draggedShipLength; i++){
+            userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * 1].classList.add('taken',shipClass);
+        }
+            
+
+        
+    }
+    else return;
+
+    displayGrid.removeChild(draggedShip);
 }
 function dragEnd() {
     
